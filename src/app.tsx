@@ -6,6 +6,8 @@ import VerticalSlider from "./Component/VerticalSlider/VerticalSlider";
 import Modal from "./Component/modal/Modal";
 import { Pill } from "./Component/pill/Pill";
 import { useLocalstorage } from "./hooks/useLocalstorage";
+import SliderCardhalf from "./Component/Slidercard/SliderCardhalf";
+import SliderCardfull from "./Component/Slidercard/SliderCardfull";
 
 export function App() {
   const [cmpform, setcmpform] = useLocalstorage("initialcmp", false);
@@ -68,7 +70,6 @@ export function App() {
 
         {cmpform ? <HorizontalScroolbar resetdelete={resetdelete} /> : ""}
       </div>
-     
     </>
   );
 }

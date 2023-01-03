@@ -32,9 +32,15 @@ function FormComponet({
   return (
     <div className="form-container">
       <form onSubmit={onSubmit}>
-        <select name="name" id="name" onInput={(e) => OnChange(e)}>
+        <h4>Waist Size (in cm)</h4>
+        <select
+          className={`${touched && first.name === "" ? "selecterror" : ""}   `}
+          name="name"
+          id="name"
+          onInput={(e) => OnChange(e)}
+        >
           <option _ngcontent-dss-c150="" selected={true} disabled={true}>
-            Select name
+            Select
           </option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
@@ -42,19 +48,22 @@ function FormComponet({
           <option value="audi">Audi</option>
         </select>
         {touched && first.name === "" ? (
-          <h4 className={`text-red-500 text-xs `}>{error[0]}</h4>
+          <h4 className="error">{error[0]}</h4>
         ) : (
           ""
         )}
+
+        <h4>Chest Size (in cm)</h4>
         <select
           name="size"
           id="size"
           onInput={(e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) =>
             OnChange(e)
           }
+          className={`${touched && first.size === "" ? "selecterror" : ""}   `}
         >
           <option _ngcontent-dss-c150="" selected={true} disabled={true}>
-            Select size
+            Select
           </option>
           <option value="5">5</option>
           <option value="10">10</option>
@@ -62,21 +71,36 @@ function FormComponet({
           <option value="30">30</option>
         </select>
         {touched && first.size === "" ? (
-          <h4 className={`text-red-500 text-xs `}>{error[1]}</h4>
+          <h4 className="error">{error[1]}</h4>
         ) : (
           ""
         )}
-        <select name="color" id="color" onInput={(e) => OnChange(e)}>
+
+        <h4>Hip Size (in cm)</h4>
+        <select
+          className={`${touched && first.color === "" ? "selecterror" : ""}   `}
+          name="color"
+          id="color"
+          onInput={(e) => OnChange(e)}
+        >
           <option _ngcontent-dss-c150="" selected={true} disabled={true}>
-            Select color
+            Select
           </option>
+          <option value="pink">pink</option>
+          <option value="orange">orange</option>
+          <option value="gauva">gauva</option>
+          <option value="leonade">lemonade</option>
+          <option value="pink">pink</option>
+          <option value="orange">orange</option>
+          <option value="gauva">gauva</option>
+          <option value="leonade">lemonade</option>
           <option value="pink">pink</option>
           <option value="orange">orange</option>
           <option value="gauva">gauva</option>
           <option value="leonade">lemonade</option>
         </select>
         {touched && first.color === "" ? (
-          <h4 className={`text-red-500 text-xs `}>{error[2]}</h4>
+          <h4 className="error">{error[2]}</h4>
         ) : (
           ""
         )}

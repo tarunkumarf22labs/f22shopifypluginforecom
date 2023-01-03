@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 
 /*  */
@@ -18,15 +18,18 @@
   position: fixed;
   width: 3rem;
   height: 3rem;
-  background-color: black;
+  background-color: #3e6ff0;
   color: white;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   align-items: center;
-  bottom: 10px;
-  right: 10px;
+  bottom: 48px;
+  right: 60px;
+}
+.pill h5 {
+  font-weight: lighter;
 }
 
 .rounded-full {
@@ -40,7 +43,7 @@
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,11 +64,6 @@
 
 .modal-card {
   overflow: hidden;
-  width: calc(100% - 10rem);
-  max-width: 750px;
-  width: 736px;
-  min-width: 736px;
-  min-height: 356px;
 }
 
 /*  */
@@ -151,32 +149,50 @@ p {
 .modal-card-wrap {
   border-radius: 10px;
   background-color: white;
+  width: 532px;
+  min-height: 100%;
+  padding: 2rem;
 }
 
 select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  height: 40px;
+  margin-bottom: 8px;
+
+  border: 0.3px solid #e2e2e2;
+  border-radius: 4px;
+  text-indent: 5px;
+}
+
+select:last-child {
+  margin-bottom: 20px;
+}
+
+select option {
+  font-family: "Mulish", sans-serif;
+  border: 1px solid black;
 }
 
 .form-container {
-  padding: 2rem;
+  max-height: 500px;
+  /* min-height: 430px; */
 }
+
+form h4 {
+  font-family: "Mulish", sans-serif;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 20px;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  /* min-height: 28px; */
+}
+
 .submit-btn {
   width: 100%;
   margin-top: 1rem;
   padding: 1rem;
-}
-
-.cross {
-  background: rgb(201, 212, 228);
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: right;
+  font-weight: bolder;
 }
 .icon-Close {
   display: flex;
@@ -189,21 +205,26 @@ select {
   height: 20px;
 }
 .icon-holder {
-  padding: 10px;
   cursor: pointer;
   width: fit-content;
 }
 
 .icon-holder-parent {
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
 }
 
 .form-submitbtn {
   width: 100%;
-  padding: 1rem;
-  background-color: black;
+  padding: 12px;
+  background-color: #3e6ff0;
   color: white;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
 }
 
 /* modal Slider */
@@ -214,7 +235,7 @@ select {
 .modalsliderparent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 20rem;
+  max-height: calc(600px - 8.2rem);
   overflow: hidden;
   overflow-y: scroll;
   gap: 10px;
@@ -256,11 +277,12 @@ select {
 .main-slider-container {
   width: 100%;
   height: 250px;
-  background-color: gray;
+  background-color: white;
+
   /* position: relative; */
   display: flex;
   align-items: center;
-  margin-right: 2rem;
+  /* margin: 90%; */
 }
 .slider {
   height: 100%;
@@ -268,7 +290,7 @@ select {
   margin: 1rem;
 }
 .slider-icon {
-  background-color: white;
+  background-color: #6b7280;
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
@@ -277,6 +299,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .slider-icon.left {
@@ -288,18 +311,18 @@ select {
 }
 
 .slider-card {
-  width: 320px;
-  height: 210px;
-  background-color: black;
-  color: aliceblue;
+  /* width: 320px;
+  height: 210px; */
+  /* background-color: black; */
+  /* color: aliceblue; */
   display: inline-block;
   margin: 10px;
-  border-radius: 10px;
-
-  background: rgba(255, 255, 255, 0.4);
+  /* border-radius: 10px; */
+  background-color: white;
+  /* background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18); */
   position: relative;
 }
 #slider {
@@ -365,7 +388,7 @@ select {
 
 .slider-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
   width: 100%;
   height: 70vh;
@@ -390,4 +413,72 @@ select {
     transform: scale(1);
     height: 70vh;
   }
+}
+
+.error {
+  color: red;
+}
+
+.selecterror {
+  border: 1px solid red;
+}
+
+.product-container {
+  height: 236px;
+  width: 226px;
+  padding: 2px;
+  padding-bottom: 12px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+}
+
+.product-container img {
+  width: 100%;
+}
+
+.product-container h2 {
+  font-size: 12px;
+  padding: 12px;
+  font-weight: bolder;
+}
+
+.product-container-img {
+  height: 174px;
+  /* padding: 2px; */
+}
+
+.large-container {
+  width: 250px;
+  height: 328px;
+  border: 1px solid #e2e2e2;
+  /* padding: 2px; */
+  border-radius: 4px;
+}
+
+.large-container-img {
+  height: 174px;
+  /* padding: 2px; */
+  padding-bottom: 10px;
+}
+
+.large-container-text {
+  padding: 12px;
+}
+
+.large-container-title {
+  padding-top: 1rem;
+}
+
+.large-container-price {
+  padding-top: 1rem;
+  padding-bottom: 8px;
+}
+
+.large-container-img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.large-container button {
+  margin-bottom: 24px;
 }

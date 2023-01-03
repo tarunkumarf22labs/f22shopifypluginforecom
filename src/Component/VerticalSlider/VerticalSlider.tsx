@@ -1,34 +1,40 @@
+import { useEffect, useState } from "preact/hooks";
+import SliderCardhalf from "../Slidercard/SliderCardhalf";
+
 function VerticalSlider() {
+  const [first, setfirst] = useState([]);
+  useEffect(() => {
+    async function data() {
+      let val = await fetch("https://api.escuelajs.co/api/v1/products");
+      let data = await val.json();
+      setfirst(data);
+    }
+    data();
+  });
   //   setTimeout(() => {
   //     return <h1>loading...</h1>;
   //   }, 2000);
   //   if (true) {
   //     return (
-  //       <div className=" modalsliderparent centering">
-  //         <div class="loader"></div>
-  //       </div>
+
   //     );
   //   }
+  if (first.length === 0)
+    return (
+      <div className=" modalsliderparent centering">
+        <div class="loader"></div>
+      </div>
+    );
 
-  return (
-    <div className="modal-slider">
-      <VerticalSliderchildren />
-    </div>
-  );
+  return <VerticalSliderchildren val={first} />;
 }
 
-function VerticalSliderchildren() {
-  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function VerticalSliderchildren({ val }) {
+  console.log(val[0]);
   return (
     <div className="modalsliderparent">
-      {arr.map((e) => {
-        return (
-          <div className="SliderChildren">
-            <a href={`/${e}`} target="_blank">
-              {e}
-            </a>
-          </div>
-        );
+      {val?.map((e: {}) => {
+        return <SliderCardhalf data={e} />;
       })}
     </div>
   );
