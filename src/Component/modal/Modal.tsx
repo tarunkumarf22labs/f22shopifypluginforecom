@@ -11,11 +11,13 @@ function Modal({
     <div className="modal" onClick={onClick}>
       <div className="relative" onClick={(e) => e.stopPropagation()}>
         <div className="modal-card">
-          <div className="childrena">
-            <div className="icon-holder" onClick={onClick}>
-              <div className="cross">
-                <div className="icon-Close">
-                  <img src={crossicon} alt="" />
+          <div className="modal-card-wrap">
+            <div className="icon-holder-parent">
+              <div className="icon-holder" onClick={onClick}>
+                <div className="cross">
+                  <div className="icon-Close">
+                    <img src={crossicon} alt="" />
+                  </div>
                 </div>
               </div>
             </div>

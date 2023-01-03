@@ -1,7 +1,7 @@
 // api type
-export type Apitype = Root2[];
+export type Apitype = Apivalue[];
 
-export interface Root2 {
+export interface Apivalue {
   id: number;
   name: string;
   username: string;

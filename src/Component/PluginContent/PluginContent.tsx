@@ -1,14 +1,20 @@
 import FormComponet from "../FormComponet/FormComponet";
-import SliderParent from "../Slider/SliderParent";
+import Preact from "preact";
 import { Apitype } from "../../types";
-function PluginContent({ count }: { count: Apitype }) {
+function PluginContent({
+  count,
+  OnChange,
+}: {
+  count: Apitype;
+  OnChange: (e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) => void;
+}) {
   return (
     <>
       <div className="relatives ">
         <div className="form-container">
-          <FormComponet />
+          {/* <FormComponet OnChange={OnChange} /> */}
         </div>
-        <SliderParent count={count} />
+        {/* <SliderParent count={count} /> */}
       </div>
     </>
   );

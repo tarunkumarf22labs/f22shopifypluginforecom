@@ -1,52 +1,74 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-
-import { useEffect, useState } from "preact/hooks";
-import preactLogo from "./assets/preact.svg";
+import Preact from "preact";
+import { useState } from "preact/hooks";
 import FormComponet from "./Component/FormComponet/FormComponet";
+import HorizontalScroolbar from "./Component/Horizontalscroolbar/HorizontalScroolbar";
+import VerticalSlider from "./Component/VerticalSlider/VerticalSlider";
 import Modal from "./Component/modal/Modal";
 import { Pill } from "./Component/pill/Pill";
-import PluginContent from "./Component/PluginContent/PluginContent";
-
-import SliderParent from "./Component/Slider/SliderParent";
+import { useLocalstorage } from "./hooks/useLocalstorage";
 
 export function App() {
-  const [count, setCount] = useState([]);
-
-  async function handleasyncevent() {
-    let val = await fetch("https://jsonplaceholder.typicode.com/users");
-    let data = await val.json();
-    console.log(data);
-
-    setCount(data);
-  }
-
+  const [cmpform, setcmpform] = useLocalstorage("initialcmp", false);
+  const [first, setfirst] = useLocalstorage("initialfirst", {
+    name: "",
+    size: "",
+    color: "",
+  });
   const [modal, setmodal] = useState<boolean>(false);
+  console.log("Sahi");
+
+  function OnChange(e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) {
+    const target = e.target as HTMLInputElement;
+    setfirst((prev: any) => {
+      return {
+        ...prev,
+        [target.name]: target.value,
+      };
+    });
+  }
 
   function handleModal() {
     setmodal((prev) => !prev);
   }
+  console.log(!cmpform);
 
-  useEffect(() => {
-    handleasyncevent();
-  }, []);
+  function resetdelete() {
+    setcmpform(false);
+    setfirst({ name: "", size: "", color: "" });
+  }
 
   return (
     <>
       <div className="relative">
-        <Pill
-          text="+"
-          type="circle"
-          onClick={handleModal}
-          className=" bg-black "
-        />
+        {!cmpform ? (
+          <Pill
+            text="+"
+            type="circle"
+            onClick={handleModal}
+            className=" bg-black "
+          />
+        ) : (
+          ""
+        )}
         {modal ? (
           <Modal onClick={handleModal}>
-            <PluginContent count={count} />
+            {!cmpform ? (
+              <FormComponet
+                first={first}
+                OnChange={OnChange}
+                setcmpform={setcmpform}
+              />
+            ) : (
+              <VerticalSlider />
+            )}
           </Modal>
         ) : (
           ""
         )}
+
+        {cmpform ? <HorizontalScroolbar resetdelete={resetdelete} /> : ""}
       </div>
+     
     </>
   );
 }
