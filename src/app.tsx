@@ -31,7 +31,7 @@ export function App() {
 
   function handleModal() {
     setmodal((prev) => !prev);
-  }
+  } 
   console.log(!cmpform);
 
   function resetdelete() {

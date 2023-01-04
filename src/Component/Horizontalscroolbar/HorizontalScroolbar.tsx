@@ -2,7 +2,9 @@ import { useEffect, useState } from "preact/hooks";
 import { JSXInternal } from "preact/src/jsx";
 import SliderCardfull from "../Slidercard/SliderCardfull";
 import SliderCardhalf from "../Slidercard/SliderCardhalf";
-
+import maximizepng from "../../assets/maximize-4.png";
+import minimizepng from "../../assets/minimize.png";
+import croosbar from "../../assets/close-circle.png";
 function HorizontalScroolbar({ resetdelete }: { resetdelete: () => void }) {
   const slides = [
     {
@@ -61,12 +63,27 @@ function HorizontalScroolbar({ resetdelete }: { resetdelete: () => void }) {
   return (
     <div className="grand-parent">
       <div className="slider-parent">
-        <div className="" style={{ textAlign: "right" }}>
-          <button onClick={resetdelete}>cross</button>
+        <div className="slider-content">
+          <h2>Available Products for you</h2>
+          <div className="slider-buttons">
+            <div className="maximize">
+              <button onClick={() => setfirst(!first)}>
+                {first ? (
+                  <img src={maximizepng} alt="" />
+                ) : (
+                  <img src={minimizepng} alt="" />
+                )}
+              </button>
+            </div>
+
+            <div className="crossicon">
+              <button onClick={resetdelete}>
+                <img src={croosbar} alt="" />
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="" style={{ textAlign: "right" }}>
-          <button onClick={() => setfirst(!first)}>Expand</button>
-        </div>
+
         <div
           className={
             first ? `main-slider-container` : `main-slider-container increase`
