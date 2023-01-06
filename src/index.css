@@ -1,8 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Mulish", sans-serif;
+}
+#app {
+  z-index: 2147483647;
+}
+a {
+  color: black;
+  font-family: inherit;
+  text-decoration: none;
 }
 
 /*  */
@@ -158,7 +167,7 @@ p {
   padding: 2rem;
 }
 
-select {
+.plugin-select {
   width: 100%;
   height: 40px;
   margin-bottom: 8px;
@@ -253,7 +262,7 @@ form h4 {
   background-color: blanchedalmond;
 }
 
-.centering {
+.modalsliderparent-centering {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -393,6 +402,7 @@ form h4 {
   bottom: 0;
   width: 100%;
   padding-bottom: 2rem;
+  z-index: 10;
 }
 
 .increase {
@@ -462,10 +472,11 @@ form h4 {
 }
 
 .large-container {
-  width: 250px;
+  min-width: 250px;
+
   height: 328px;
   border: 1px solid #e2e2e2;
-  /* padding: 2px; */
+  padding: 2px;
   border-radius: 4px;
 }
 
@@ -475,21 +486,19 @@ form h4 {
   padding-bottom: 10px;
 }
 
-.large-container-text {
-  padding: 12px;
-}
-
 .large-container-title {
-  padding-top: 1rem;
+  padding: 12px;
+  padding-bottom: 8px;
 }
 
 .large-container-price {
-  padding-top: 1rem;
-  padding-bottom: 8px;
+  padding: 1rem;
+  /*  */
 }
 
 .large-container-img img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -523,4 +532,106 @@ form h4 {
 
 .crossicon {
   margin-left: 20px;
+}
+
+.slider-buttons img {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 620px) {
+  .pill {
+    width: 40px;
+    height: 40px;
+  }
+  .modal {
+    animation: none;
+  }
+}
+
+@media only screen and (max-width: 585px) {
+  .modal-card-wrap {
+    width: 320px;
+    padding: 20px;
+  }
+  .icon-holder-parent h3 {
+    font-size: 1rem;
+  }
+  form h4 {
+    font-size: 12px;
+    padding-bottom: 6px;
+  }
+
+  select {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 0;
+  }
+  .form-submitbtn {
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+  .modalsliderparent {
+    max-height: calc(430px - 8.2rem);
+  }
+  .product-container {
+    width: 136px;
+    height: 146px;
+  }
+  .product-container-img {
+    width: 132px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .product-container h2 {
+    padding-top: 4px;
+    padding: 8px;
+    font-size: 10px;
+  }
+  .main-slider-container {
+    height: auto;
+  }
+  .slider-content h2 {
+    font-size: 16px;
+  }
+  .slider-buttons {
+    height: 16px;
+  }
+  .slider-buttons img {
+    width: 16px;
+  }
+  .slider-content {
+    padding-bottom: 1rem;
+  }
+  .slider-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .large-container {
+    min-width: 148px;
+    max-height: 242px;
+  }
+  .slider-parent {
+    padding: 16px;
+  }
+  .large-container-img {
+    height: 100px;
+    padding: 0;
+  }
+  .large-container-text {
+    /* padding: 10px; */
+    padding-top: 0px;
+  }
+  .large-container-title {
+    padding: 8px;
+    font-size: 10px;
+  }
+  .large-container-price {
+    font-size: 10px;
+  }
+  .large-container button {
+    padding: 4px 34px;
+    font-size: 10px;
+  }
+  .slider-card {
+    margin: 0px;
+  }
 }

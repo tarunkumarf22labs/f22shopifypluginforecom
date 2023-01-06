@@ -42,7 +42,7 @@ function HorizontalScroolbar({ resetdelete }: { resetdelete: () => void }) {
       setdata(data);
     }
     data();
-  });
+  },[]);
 
   function handleSlidelift() {
     let slider = document.getElementById("slider");

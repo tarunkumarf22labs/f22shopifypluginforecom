@@ -3,9 +3,11 @@ import crossicon from "../../assets/cross.webp";
 function Modal({
   children,
   onClick,
+  count
 }: {
   children: preact.ComponentChildren;
   onClick: () => void;
+  count : number
 }) {
   return (
     <div className="modal" onClick={onClick}>
@@ -13,7 +15,12 @@ function Modal({
         <div className="modal-card">
           <div className="modal-card-wrap">
             <div className="icon-holder-parent">
-              <h3>Add Measurements</h3>
+              <h3>
+                {" "}
+                {count === 0
+                  ? "Add Measurements"
+                  : "Available Products for you"}
+              </h3>
               <div className="icon-holder" onClick={onClick}>
                 <div className="cross">
                   <div className="icon-Close">

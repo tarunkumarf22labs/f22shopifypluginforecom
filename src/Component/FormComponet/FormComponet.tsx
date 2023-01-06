@@ -5,10 +5,12 @@ function FormComponet({
   OnChange,
   first,
   setcmpform,
+  handleCount,
 }: {
   OnChange: (e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) => void;
   first: { name: string; size: string; color: string };
   setcmpform: StateUpdater<boolean>;
+  handleCount: () => void;
 }) {
   const [touched, settouched] = useState<boolean>(false);
 
@@ -27,6 +29,7 @@ function FormComponet({
       return;
     }
     setcmpform(true);
+    handleCount();
   }
 
   return (
@@ -34,7 +37,11 @@ function FormComponet({
       <form onSubmit={onSubmit}>
         <h4>Waist Size (in cm)</h4>
         <select
-          className={`${touched && first.name === "" ? "selecterror" : ""}   `}
+          className={`${
+            touched && first.name === ""
+              ? "plugin-select selecterror"
+              : "plugin-select "
+          }   `}
           name="name"
           id="name"
           onInput={(e) => OnChange(e)}
@@ -60,7 +67,11 @@ function FormComponet({
           onInput={(e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) =>
             OnChange(e)
           }
-          className={`${touched && first.size === "" ? "selecterror" : ""}   `}
+          className={`${
+            touched && first.size === ""
+              ? "plugin-select  selecterror"
+              : "plugin-select "
+          }   `}
         >
           <option _ngcontent-dss-c150="" selected={true} disabled={true}>
             Select
@@ -78,7 +89,11 @@ function FormComponet({
 
         <h4>Hip Size (in cm)</h4>
         <select
-          className={`${touched && first.color === "" ? "selecterror" : ""}   `}
+          className={`${
+            touched && first.color === ""
+              ? "selecterror plugin-select"
+              : "plugin-select"
+          }   `}
           name="color"
           id="color"
           onInput={(e) => OnChange(e)}

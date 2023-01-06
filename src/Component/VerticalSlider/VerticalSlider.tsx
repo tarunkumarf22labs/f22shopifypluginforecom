@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import SliderCardhalf from "../Slidercard/SliderCardhalf";
 
-function VerticalSlider() {
+function VerticalSlider({ handleSlider }: { handleSlider: () => void }) {
   const [first, setfirst] = useState([]);
   useEffect(() => {
     async function data() {
@@ -10,7 +10,7 @@ function VerticalSlider() {
       setfirst(data);
     }
     data();
-  });
+  }, []);
   //   setTimeout(() => {
   //     return <h1>loading...</h1>;
   //   }, 2000);
@@ -21,20 +21,26 @@ function VerticalSlider() {
   //   }
   if (first.length === 0)
     return (
-      <div className=" modalsliderparent centering">
+      <div className="modalsliderparent modalsliderparent-centering">
         <div class="loader"></div>
       </div>
     );
 
-  return <VerticalSliderchildren val={first} />;
+  return <VerticalSliderchildren val={first} handleSlider={handleSlider} />;
 }
 
-function VerticalSliderchildren({ val }) {
+function VerticalSliderchildren({
+  val,
+  handleSlider,
+}: {
+  val: any;
+  handleSlider: () => void;
+}) {
   console.log(val[0]);
   return (
     <div className="modalsliderparent">
       {val?.map((e: {}) => {
-        return <SliderCardhalf data={e} />;
+        return <SliderCardhalf handleSlider={handleSlider} data={e} />;
       })}
     </div>
   );

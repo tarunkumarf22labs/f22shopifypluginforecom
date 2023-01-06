@@ -1,8 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 
-function SliderCardfull({data} ) {
-
-  if (Object.keys(data).length === 0) return "loading...";
+function SliderCardfull({ data }: { data: any }) {
+  if (Object.keys(data).length === 0) return <div>loading....</div>;
   return (
     <div>
       <div className="large-container">

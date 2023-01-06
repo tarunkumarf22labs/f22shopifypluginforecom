@@ -11,9 +11,9 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, "src/main.tsx"),
-      name: "MyLib",
+      name: "shopifyplugin",
       // the proper extensions will be added
-      fileName: "my-lib",
+      fileName: "shopifyplugin",
     },
   },
 });

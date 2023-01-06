@@ -17,7 +17,8 @@ export function App() {
     color: "",
   });
   const [modal, setmodal] = useState<boolean>(false);
-  console.log("Sahi");
+  const [count, setcount] = useLocalstorage("initialcount", 0);
+  const [slider, setslider] = useLocalstorage("initisalSlider", false);
 
   function OnChange(e: Preact.JSX.TargetedEvent<HTMLSelectElement, Event>) {
     const target = e.target as HTMLInputElement;
@@ -31,12 +32,24 @@ export function App() {
 
   function handleModal() {
     setmodal((prev) => !prev);
-  } 
-  console.log(!cmpform);
+    if (count === 1) {
+      setslider(true);
+    }
+  }
 
   function resetdelete() {
     setcmpform(false);
     setfirst({ name: "", size: "", color: "" });
+    setcount(0);
+    setslider(false);
+  }
+
+  function handleCount() {
+    setcount((prev: number) => prev + 1);
+  }
+
+  function handleSlider() {
+    setslider(true);
   }
 
   return (
@@ -53,22 +66,23 @@ export function App() {
           ""
         )}
         {modal ? (
-          <Modal onClick={handleModal}>
+          <Modal count={count} onClick={handleModal}>
             {!cmpform ? (
               <FormComponet
                 first={first}
                 OnChange={OnChange}
                 setcmpform={setcmpform}
+                handleCount={handleCount}
               />
             ) : (
-              <VerticalSlider />
+              <VerticalSlider handleSlider={handleSlider} />
             )}
           </Modal>
         ) : (
           ""
         )}
 
-        {cmpform ? <HorizontalScroolbar resetdelete={resetdelete} /> : ""}
+        {slider ? <HorizontalScroolbar resetdelete={resetdelete} /> : ""}
       </div>
     </>
   );
